@@ -9,7 +9,7 @@ import My from './pages/my'
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename='/Everscale-SEW/'>
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="/" element={<Bets />} />

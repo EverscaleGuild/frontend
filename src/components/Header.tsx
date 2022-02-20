@@ -13,8 +13,17 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
 
-const pages = [{ label: 'Все ставки', url: '/' }, { label: 'Мои ставки', url: '/my' }, { label: 'Сертификаты', url: '/certs' }];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = [
+    { label: 'Все ставки', url: '/' },
+    // TODO { label: 'Мои ставки', url: '/my' },
+    // TODO { label: 'Сертификаты', url: '/certs' },
+];
+const settings = [
+    // 'Profile',
+    // 'Account',
+    // 'Dashboard',
+    // 'Logout',
+];
 
 export const Header = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -111,7 +120,7 @@ export const Header = () => {
                         component="div"
                         sx={{ flexGrow: 0, marginRight: 2}}
                     >
-                        1750 ₽
+                        {/*1750 ₽*/}
                     </Typography>
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
