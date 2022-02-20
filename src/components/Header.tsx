@@ -22,7 +22,7 @@ const settings = [
     // 'Profile',
     // 'Account',
     // 'Dashboard',
-    // 'Logout',
+    'Logout',
 ];
 
 export const Header = () => {

@@ -39,7 +39,7 @@ export const Game: React.FC<IGameProps> = (props) => {
     const isShowScissors = choosed === null || choosed === 'scissors';
 
     const hands = [Stone, Paper, Scissors];
-    const RandomHand = hands[Math.floor(Math.random() * hands.length)];
+    const RandomHand = () => <img src={`${process.env.PUBLIC_URL}/timer.gif`} width='90%'/>;
 
     return (
         <Box>
@@ -68,7 +68,7 @@ export const Game: React.FC<IGameProps> = (props) => {
                         <Box sx={{ position: 'absolute', top: 30, left: '50%', transform: 'translateX(-50%)' }}>
                             {!secret ?
                                 <Secret style={{ fill: 'antiquewhite' }} /> :
-                                <RandomHand style={{ fill: 'antiquewhite', transform: 'rotate(180deg)' }} />
+                                <RandomHand />
                             }
                         </Box>
                         {/* <Box sx={{ position: 'absolute', top: 50, left: 200, transform: 'translateX(-50%)' }}>
