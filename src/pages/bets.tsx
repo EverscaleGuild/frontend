@@ -12,13 +12,24 @@ import {
     TvmException
 } from 'everscale-inpage-provider';
 import { GameContract } from '../components/GameContract';
+import { abi, addr } from '../Contract';
+
+function contractAddress(network: string, name = "App"): Address {
+    // @ts-ignore
+    return new Address(addr[network][name])
+}
+
+async function Contract() {
+    const providerState = await ever.getProviderState();
+    const address = contractAddress(providerState.selectedConnection);
+    return new ever.Contract(abi, address);
+}
 
 const ever = new ProviderRpcClient();
-const dePoolAddress = new Address('0:ebd9085679adb983930b991814f02d497b902c87a9b240c6ede49008aca12a1f');
-const dePool: any = ever.createContract(GameContract.abi, dePoolAddress);
-
 
 export default function ActionAreaCard() {
+    const [bets, setBets] = React.useState<any[]>([]);
+
     const [game, setGame] = React.useState<string | null>(null);
     React.useEffect(() => {
         const loadBets = async () => {
@@ -30,39 +41,31 @@ export default function ActionAreaCard() {
             if (accountInteraction == null) {
                 throw new Error('Insufficient permissions');
             }
-
-            const selectedAddress = accountInteraction.address;
-
-            const transaction = await dePool
-                .methods.
-                listBet({
-                    stake: '10000000000',
-                }).send({
-                    from: selectedAddress,
-                    amount: '10500000000',
-                    bounce: true,
-                });
-            console.log(transaction);
+            const response = await (await Contract()).methods.listBet({}).call();
+            console.log(response);
+            setBets(response.listBet);
         }
         loadBets()
     }, [])
     return (
         <Box sx={{ display: 'flex', flexWrap: 'wrap', padding: 5, gap: 3 }}>
-            <Card sx={{ maxWidth: 200 }} onClick={() => setGame('1')}>
-                <CardActionArea>
-                    <CardMedia
-                        component="img"
-                        height="140"
-                        image={`https://avatars.dicebear.com/api/male/john1.svg?background=%230000ff`}
-                        alt="green iguana"
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            150 Ever
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
+            {bets.map((item) => (
+                <Card sx={{ maxWidth: 200 }} onClick={() => setGame('1')}>
+                    <CardActionArea>
+                        <CardMedia
+                            component="img"
+                            height="140"
+                            image={`https://avatars.dicebear.com/api/male/${item[1].hash}.svg?background=%230000ff`}
+                            alt="green iguana"
+                        />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="div">
+                                {Math.floor(item[1].amount / Math.pow(10, 9))} Ever
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                </Card>
+            ))}
             <Game game={game} key={game} handleClose={() => setGame(null)} />
             <Fab sx={{ position: 'fixed', right: 30, bottom: 30 }} color="primary" aria-label="add">
                 <AddIcon />
