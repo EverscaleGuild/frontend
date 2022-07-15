@@ -108,7 +108,7 @@ export const Header = () => {
                             <Button
                                 key={page.url}
                                 onClick={() => navigate(page.url)}
-                                sx={{ my: 2, color: 'black', display: 'block' }}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
                             >
                                 {page.label}
                             </Button>
