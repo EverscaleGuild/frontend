@@ -108,7 +108,7 @@ export const Header = () => {
                             <Button
                                 key={page.url}
                                 onClick={() => navigate(page.url)}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: 'black', display: 'block' }}
                             >
                                 {page.label}
                             </Button>
@@ -123,7 +123,7 @@ export const Header = () => {
                         {/*1750 ₽*/}
                     </Typography>
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
+                        <Tooltip title="Profile">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                             </IconButton>

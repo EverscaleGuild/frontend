@@ -54,13 +54,13 @@ export default function ActionAreaCard() {
                     <CardActionArea>
                         <CardMedia
                             component="img"
-                            height="140"
-                            image={`https://avatars.dicebear.com/api/male/${item[1].hash}.svg?background=%230000ff`}
-                            alt="green iguana"
+                            height="160"
+                            image={`https://avatars.dicebear.com/api/bottts/${item[1].hash}.svg?background=%23000000`}
+                            alt="green iguan"
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
-                                {Math.floor(item[1].amount / Math.pow(10, 9))} Ever
+                                {Math.floor(item[1].amount / Math.pow(10, 9))} Ever coins
                             </Typography>
                         </CardContent>
                     </CardActionArea>
