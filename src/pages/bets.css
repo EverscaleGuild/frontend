@@ -4,3 +4,16 @@
 .MuiPaper-root.NoBet {
   background-color: #FF6922;
 }
+
+body{
+  background-image: url("background.svg");
+}
+
+#logo{
+  background-image: url("logo.png");
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 10px;
+  length: 10px;
+}
