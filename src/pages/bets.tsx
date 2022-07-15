@@ -80,13 +80,13 @@ export default function ActionAreaCard() {
     var back_color:string  = "39f491";
 
     return (
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', padding: 10, gap: 10}}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', padding: 15, gap: 20,position: 'absolute', top: 180}}>
             {bets.map((item) => (
                 <Card sx={{ maxWidth: 200 }} onClick={() => setGame('1')} className={item[1].beat ? "YesBet" : "NoBet"} key={item[0]}>
                     <CardActionArea>
                         <CardMedia
                             component="img"
-                            height="160"
+                            height="140"
                             image={`https://avatars.dicebear.com/api/identicon/${item[1].hash}.svg?background=%23${item[1].beat ? "39f491" : "FF6922"}`}
                             alt="green iguan"
                         />
