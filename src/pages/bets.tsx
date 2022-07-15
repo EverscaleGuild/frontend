@@ -6,6 +6,8 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea, Box, Fab } from '@mui/material';
 import { Game } from '../components/Game';
 import AddIcon from '@mui/icons-material/Add';
+import './bets.css';
+
 import {
     Address,
     ProviderRpcClient,
@@ -50,7 +52,7 @@ export default function ActionAreaCard() {
     return (
         <Box sx={{ display: 'flex', flexWrap: 'wrap', padding: 5, gap: 3 }}>
             {bets.map((item) => (
-                <Card sx={{ maxWidth: 200 }} onClick={() => setGame('1')}>
+                <Card sx={{ maxWidth: 200 }} onClick={() => setGame('1')} className={item[1].beat ? "YesBet" : "NoBet"} key={item[0]}>
                     <CardActionArea>
                         <CardMedia
                             component="img"
