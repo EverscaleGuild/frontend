@@ -69,8 +69,9 @@ export default function ActionAreaCard() {
                     <CardMedia
                         component="img"
                         height="160"
-                        image={`https://avatars.dicebear.com/api/identicon/${item[1].hash}.svg?background=%23${item[1].beat ? "39f491" : "FF6922"}`}
-                        alt="green iguan"
+                        //`https://avatars.dicebear.com/api/identicon/${item[1].hash}.svg?background=%23
+                         image={item[1].beat ? "https://avatars.dicebear.com/api/pixel-art/d.svg?background=%2339f491" : `https://avatars.dicebear.com/api/identicon/${item[1].hash}.svg?background=%23FF6922`}
+                         alt="green iguan"
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
