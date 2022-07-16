@@ -12,12 +12,11 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
+import Drawer from '@mui/material/Drawer';
+import "./header.css"
 
-const pages = [
-    { label: 'Все ставки', url: '/' },
-    // TODO { label: 'Мои ставки', url: '/my' },
-    // TODO { label: 'Сертификаты', url: '/certs' },
-];
+
+
 const settings = [
     // 'Profile',
     // 'Account',
@@ -50,79 +49,13 @@ export const Header = () => {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-                    >
-                        LOGO
-                    </Typography>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { xs: 'block', md: 'none' },
-                            }}
-                        >
-                            {pages.map((page) => (
-                                <MenuItem key={page.url} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page.label}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-                    >
-                        LOGO
-                    </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page.url}
-                                onClick={() => navigate(page.url)}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >
-                                {page.label}
-                            </Button>
-                        ))}
-                    </Box>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ flexGrow: 0, marginRight: 2}}
-                    >
-                        {/*1750 ₽*/}
-                    </Typography>
-                    <Box sx={{ flexGrow: 0 }}>
+
+                    <img src= "https://lh3.googleusercontent.com/HO4p5RoD5e0HC5Q6L1sT7YZgp8_E-QuWX9egyxuLTObIAI4m-THZy3BxJixZmZcwQRpPpv8=s108"/>
+
+                    <h2>Slashing, EVER, Whitepaper</h2>
+
+                    <Box sx={{ flexGrow: 0, position: 'absolute', right: 10 }}>
                         <Tooltip title="Profile">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" src="" />
