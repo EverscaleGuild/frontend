@@ -50,8 +50,7 @@ export const Header = () => {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
 
-
-                    <img src= "https://lh3.googleusercontent.com/HO4p5RoD5e0HC5Q6L1sT7YZgp8_E-QuWX9egyxuLTObIAI4m-THZy3BxJixZmZcwQRpPpv8=s108"/>
+                    <img src= "/public/logo.jpeg" alt="logo"/>
 
                     <h2>Slashing, EVER, Whitepaper</h2>
 

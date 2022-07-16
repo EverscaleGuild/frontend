@@ -151,11 +151,11 @@ export const CreateBet: React.FC<ICreateBetProps> = (props) => {
         .methods
         .bet({
           betHash: hash,
-          amount: (Number(betValue) * Math.pow(10, 9)).toString(),
+          amount: ((Number(betValue) + 1) * Math.pow(10, 9)).toString(),
         })
         .send({
             from: selectedAddress.address,
-            amount: (Number(betValue) * Math.pow(10, 9)).toString(),
+            amount: ((Number(betValue) + 1) * Math.pow(10, 9)).toString(),
             bounce: true,
           }).then(() => {
             setLoading(false);

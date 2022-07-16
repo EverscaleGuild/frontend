@@ -10,7 +10,7 @@ body{
 }
 
 #logo{
-  background-image: url("https://lh3.googleusercontent.com/aEmuZlplMA7vzz_Ovxye9UpeWnBoNuYwUqIVR-KWSp_F_HwDqHLtju6LJ69vCIjHuPzATw=s108");
+  background: url("/public/logo.jpeg");
   position: fixed;
   top: 10px;
   left: 10px;
