@@ -64,14 +64,13 @@ const box_style = {
 };
 
 const button_style = {
-  position: 'fixed', 
-  left: 30, 
-  top: 100, 
+  position: 'absolute', 
+  left: 250, 
+  top: 15, 
   backgroundColor: '#39f491',
-  opacity: 0.7,
   '&:hover': {
+    boxShadow: '0px 0px 5px 2px rgb(57 244 145)',
     backgroundColor: '#39f491',
-    opacity: 1,
   },  
 }
 
