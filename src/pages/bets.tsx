@@ -72,7 +72,7 @@ export default function ActionAreaCard() {
                 </CardActionArea>
             </Card>
         ))}
-        <Game game={game} key={game} handleClose={() => setGame(null)} />
+        <Game gameHash={game} key={game} handleClose={() => setGame(null)} />
       </Box>
       </div>
     );
