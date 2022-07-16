@@ -64,9 +64,7 @@ const box_style = {
 };
 
 const button_style = {
-  position: 'fixed', 
-  left: 100, 
-  top: 85, 
+  top: 20, 
   backgroundColor: '#39f491',
   '&:hover': {
     boxShadow: '0px 0px 5px 2px rgb(57 244 145)',

@@ -14,6 +14,30 @@ import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
 import Drawer from '@mui/material/Drawer';
 import "./header.css"
+import {
+  Address,
+  ProviderRpcClient
+} from 'everscale-inpage-provider';
+import { abi, addr } from '../Contract';
+
+const ever = new ProviderRpcClient();
+
+const getEverscaleWallet = async function() {
+
+  if (!(await ever.hasProvider())) {
+    throw new Error('Extension is not installed');
+  }
+
+  const { accountInteraction } = await ever.requestPermissions({
+    permissions: ['basic', 'accountInteraction'],
+  });
+
+  if (accountInteraction == null) {
+    throw new Error('Insufficient permissions');
+  }
+
+  return accountInteraction;
+}
 
 
 
@@ -23,6 +47,18 @@ const settings = [
     // 'Dashboard',
     'Logout',
 ];
+
+
+async function disconnectAction() {
+    console.log('disconnectAction')
+    await ever.disconnect();
+    document.location.reload()
+}
+
+//const makeBet = async function (){
+  //const selectedAddress = await getEverscaleWallet() selectedAddress.address.toString()
+//};
+//const user = "a"
 
 export const Header = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -40,24 +76,26 @@ export const Header = () => {
     };
 
     const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
+        disconnectAction()
     };
 
     const navigate = useNavigate();
+
+
 
     return (
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
 
-                    <img src= "/public/logo.jpeg" alt="logo"/>
+                    <img src= "logo.jpeg" alt="logo" style={{height: '40px'}}/>
 
-                    <h2>Slashing, EVER, Whitepaper</h2>
+                    <Typography sx={{position: "absolute", left: 100}}>Slashing, EVER, Whitepaper</Typography>
 
                     <Box sx={{ flexGrow: 0, position: 'absolute', right: 10 }}>
                         <Tooltip title="Profile">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="" />
+                                <Avatar alt="Remy Sharp" src={`https://avatars.dicebear.com/api/pixel-art/d.svg`} />
                             </IconButton>
                         </Tooltip>
                         <Menu
