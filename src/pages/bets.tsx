@@ -5,6 +5,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, Box } from '@mui/material';
 import { Game } from '../components/Game';
+import AddIcon from '@mui/icons-material/Add';
+import Button from '@mui/material/Button';
+import Modal from '@mui/material/Modal';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import Paper from '@mui/material/Paper';
 import { CreateBet } from '../components/CreateBet';
 import './bets.css';
 
@@ -72,7 +78,7 @@ export default function ActionAreaCard() {
                 </CardActionArea>
             </Card>
         ))}
-        <Game game={game} key={game} handleClose={() => setGame(null)} />
+        <Game gameHash={game} key={game} handleClose={() => setGame(null)} />
       </Box>
       </div>
     );

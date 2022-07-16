@@ -22,12 +22,12 @@ const style = {
 };
 
 interface IGameProps {
-    game: string | null;
+    gameHash: string | null;
     handleClose: () => void;
 }
 
 export const Game: React.FC<IGameProps> = (props) => {
-    const { game, handleClose } = props;
+    const { gameHash, handleClose } = props;
     const [secret, setSecret] = React.useState<boolean | null>(null)
     const [choosed, setChoosed] = React.useState<string | null>(null)
     const handleChoose = (hand: string) => {
@@ -46,7 +46,7 @@ export const Game: React.FC<IGameProps> = (props) => {
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
-                open={!!game}
+                open={!!gameHash}
                 onClose={handleClose}
                 closeAfterTransition
                 BackdropComponent={Backdrop}
@@ -54,7 +54,7 @@ export const Game: React.FC<IGameProps> = (props) => {
                     timeout: 500,
                 }}
             >
-                <Fade in={!!game}>
+                <Fade in={!!gameHash}>
                     <Box sx={style}>
                         <Box sx={{ position: 'absolute', bottom: 30, left: 100, transform: 'rotate(20deg)' }} >
                             {isShowStone && <Stone style={{ fill: 'antiquewhite' }} onClick={() => handleChoose('stone')} />}

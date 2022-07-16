@@ -10,7 +10,7 @@ body{
 }
 
 #logo{
-  background-image: url("logo.png");
+  background: url("/public/logo.jpeg");
   position: fixed;
   top: 10px;
   left: 10px;
