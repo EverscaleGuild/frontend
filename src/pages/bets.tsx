@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, Box } from '@mui/material';
 import { Game } from '../components/Game';
-import AddIcon from '@mui/icons-material/Add';
+import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
@@ -37,8 +37,7 @@ const ever = new ProviderRpcClient();
 
 export default function ActionAreaCard() {
     const [bets, setBets] = React.useState<any[]>([]);
-
-
+    
     const [game, setGame] = React.useState<string | null>(null);
     const loadBets = async () => {
       await ever.ensureInitialized();
@@ -58,7 +57,7 @@ export default function ActionAreaCard() {
     }, [])
 
     return (
-      <div>
+      <Container maxWidth="xl">
       <CreateBet getList={loadBets}/>
       <Box sx={{ display: 'flex', flexWrap: 'wrap', padding: 10, gap: '20px'}}>
         {bets.map((item) => (
@@ -80,6 +79,6 @@ export default function ActionAreaCard() {
         ))}
         <Game gameHash={game} key={game} handleClose={() => setGame(null)} />
       </Box>
-      </div>
+      </Container>
     );
 }

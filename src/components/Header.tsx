@@ -50,9 +50,9 @@ export const Header = () => {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
 
-                    <img src= "/public/logo.jpeg" alt="logo"/>
+                    <img src= "logo.jpeg" alt="logo" style={{height: '40px'}}/>
 
-                    <h2>Slashing, EVER, Whitepaper</h2>
+                    <Typography>Slashing, EVER, Whitepaper</Typography>
 
                     <Box sx={{ flexGrow: 0, position: 'absolute', right: 10 }}>
                         <Tooltip title="Profile">
