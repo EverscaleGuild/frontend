@@ -338,6 +338,6 @@ export const abi = {
     ]
 } as const
 export const addr = {
-    localnet: {"App": "0:5ec5e703664c8e7cc18605f3860e5be66638f3282d4cf1df18e3cc147f88b6fd"},
-    testnet: {"App": "0:ebd9085679adb983930b991814f02d497b902c87a9b240c6ede49008aca12a1f"},
+    localnet: {"App": "0:de47445fcfc9c9d60acab8bdb85254b9c8c944a716adb15b2a2fb6eda96357a8"},
+    testnet: {"App": "0:de47445fcfc9c9d60acab8bdb85254b9c8c944a716adb15b2a2fb6eda96357a8"},
 }
